@@ -2,7 +2,9 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { Sale } from '@prisma/client';
 import { Sales } from '../entities/sales.entity';
 import { SalesService } from '../services/sales.service';
+import * as swagger from "@nestjs/swagger";
 
+@swagger.ApiTags("sales")
 @Controller('sales')
 export class SalesController {
     constructor(private salesService: SalesService) { }
