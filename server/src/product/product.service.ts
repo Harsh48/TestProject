@@ -6,5 +6,6 @@ import { ProductServiceBase } from "./base/product.service.base";
 export class ProductService extends ProductServiceBase {
   constructor(protected readonly prisma: PrismaService) {
     super(prisma);
+    console.log(prisma)
   }
 }

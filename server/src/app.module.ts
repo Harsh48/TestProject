@@ -15,6 +15,7 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 import { ServeStaticModule } from "@nestjs/serve-static";
 import { ServeStaticOptionsService } from "./serveStaticOptions.service";
 import { GraphQLModule } from "@nestjs/graphql";
+import { SalesModule } from "./sales/sales.module";
 
 @Module({
   controllers: [],
@@ -22,6 +23,7 @@ import { GraphQLModule } from "@nestjs/graphql";
     UserModule,
     OrderModule,
     CustomerModule,
+    SalesModule,
     AddressModule,
     ProductModule,
     ACLModule,

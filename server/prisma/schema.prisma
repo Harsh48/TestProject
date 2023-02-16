@@ -28,6 +28,7 @@ model Order {
   productId  String?
   quantity   Int?
   totalPrice Int?
+  sales      Sale[]
   updatedAt  DateTime  @updatedAt
 }
 
@@ -65,3 +66,30 @@ model Product {
   orders      Order[]
   updatedAt   DateTime @updatedAt
 }
+
+model Sale {
+  createdAt   DateTime @default(now())
+  id          String   @id @default(cuid())
+  order       Order?  @relation(fields: [orderId], references: [id])
+  orderId     String?
+  saleAmount  Float?
+  saleAmountPaid Float?
+  taxAmount   Float?
+  paymentStatus PAYMENT_STATUS @default(PENDING)
+  shipmentStatus SHIPMENT_STATUS @default(PENDING)
+  updatedAt   DateTime?
+}
+
+enum PAYMENT_STATUS{
+  PENDING @map("PENDING")
+  SUCCESS @map("SUCCESS")
+  FALIURE @map("FALIURE")
+}
+
+enum SHIPMENT_STATUS{
+  PENDING @map("PENDING")
+  PACKED @map("PACKED")
+  SHIPPED @map("SHIPPED")
+  DELIVERED @map("DELIVERED")
+}
+ 
