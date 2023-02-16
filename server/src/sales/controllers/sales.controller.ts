@@ -1,6 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { Sale } from '@prisma/client';
-import { Sales } from '../entities/sales.entity';
 import { SalesService } from '../services/sales.service';
 import * as swagger from "@nestjs/swagger";
 
@@ -20,12 +19,12 @@ export class SalesController {
     }
 
     @Post('/')
-    async createSales(@Body() body: Sales): Promise<Sale> {
+    async createSales(@Body() body: Sale): Promise<Sale> {
         return await this.salesService.createSale(body);
     }
 
     @Put('/:id')
-    async updateSales(@Param('id') id: string, @Body() body: Sales): Promise<Sale> {
+    async updateSales(@Param('id') id: string, @Body() body: Sale): Promise<Sale> {
         return await this.salesService.upadateSale(id,body);
     }
 

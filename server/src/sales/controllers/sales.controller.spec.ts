@@ -16,9 +16,7 @@ describe('SalesController', () => {
     saleAmount: 100,
     saleAmountPaid: 100,
     taxAmount:5,
-    createdAt: new Date(),
-    updatedAt: new Date()
-  }
+  } as Sale
 
   const result = {
     id: testId,

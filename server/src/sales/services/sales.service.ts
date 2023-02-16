@@ -8,8 +8,7 @@ export class SalesService {
   constructor(private readonly prisma: PrismaService) {
   }
 
-
-  async createSale(body: any): Promise<Sale> {
+  async createSale(body: Sale): Promise<Sale> {
     return await this.prisma.sale.create({data:body})
   }
 
@@ -24,7 +23,7 @@ export class SalesService {
     return await this.prisma.sale.findMany()
   }
 
-  async upadateSale(id: string, body: any): Promise<Sale> {
+  async upadateSale(id: string, body: Sale): Promise<Sale> {
     return await this.prisma.sale
       .update({
         where: {
